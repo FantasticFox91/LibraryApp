@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width"> 
     <title>Library App</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Header -->
     <header>
-        <p>My virtual library</p>
+        <div class="header-container">
+            <button>Menu</button>
+            <div class="inner-text">
+                <p>My virtual library</p>
+            </div>
+            <button class="log">Log in</button>
+        </div>
     </header>
     <!-- Aside menu -->
     <!-- Main -->
     <main>
+        <div class="wrapper">
         <aside>
             <div class="user-info">
                 <p>Books in Library: <span>2</span></p>
@@ -23,10 +30,10 @@
         </aside>
         <div class="container">
         <div class="book-container">
-            <h5>Book name</h5>
-            <p>Author</p>
-            <p>Pages</p>
-            <p>
+            <h5>To Kill a Mockingbird</h5>
+            <h6>by Harper Lee</h6>
+            <p>Pages: <span>200</span></p>
+            <p>Read:</p>
                <label for="Readyes">
                    <input type="radio" name="Read">Yes
                </label>
@@ -127,10 +134,13 @@
             </p>
         </div>
     </div>
+</div>
     </main>
     <!-- Footer -->
     <footer>
-        <p>Programmer information. All right was sold</p>
+        <div class="footer">
+            <p>Programmer information. All right was sold</p>
+        </div>
     </footer>
     
  <!-- Script -->
