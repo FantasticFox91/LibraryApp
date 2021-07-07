@@ -9,7 +9,7 @@ body{
     margin: 0;
     display:flex;
     flex-direction: column;
-    background-color: #E8CEBF;
+    background: whitesmoke;
     font-family: "Josefin Sans";
     letter-spacing: 1px;
     font-size: 15px;
@@ -17,8 +17,8 @@ body{
     }
 
 header{
-   background: whitesmoke;
-   box-shadow: 0px 10px 10px #5e544e;
+   background: rgb(209, 153, 153);
+   
 }
 
 .header-container{
@@ -28,12 +28,11 @@ header{
     margin: auto;
     align-items: center;
     font-size: 18px;
-    
 }
 
 .header-container > button{
     border-radius: 10px;
-    background: #DDAF94;
+    background: #A6C5A6;
     outline: none;
     color: black;
     border:none;
@@ -42,10 +41,6 @@ header{
 
 .header-container > button:hover{
     filter:contrast(70%)
-}
-
-.log{
-    margin-left: auto;
 }
 
 main{
@@ -66,27 +61,28 @@ main{
     margin:10px;
     border-radius: 10px;
     padding: 5px;
-    background: #307562;
-    color: white;
-    margin-top: 15px;
-    box-shadow: 0 0 8px 4px #5e544e;
+    background: #A6C5A6;
+    margin: 15px 30px 0px 0px;
+    
+}
+
+.log{
+    margin-left: auto;
 }
 
 .container{
     display:grid;
-    grid-template-columns: repeat(5,1fr );
+    grid-template-columns: repeat(5, 1fr );
     margin-left: auto;
     grid-gap: 20px;
     margin-top: 15px;
-    color:white;
 }
 
-.book-container{
+.book-container,.book-container-start{
     text-align: center;
     padding: 20px;
     border-radius: 15px;
-    background: #307562;
-    box-shadow: 0 0 8px 4px #5e544e;
+    background: #A6C5A6;
     transition: all .2s ease-in-out;
 }
 
@@ -94,6 +90,19 @@ main{
     transform: scale(1.1);
 }
 
+.book-container-start:hover{
+    transform: scale(1.1);
+}
+
+#addBook{
+    background: #A6C5A6;
+    border: none;
+    margin-top: 25%;
+}
+
+.book-container-start>button:active{
+    transform: scale(0.95);    
+}
 
 .inner-text{
     margin-left:10px;
@@ -102,11 +111,12 @@ main{
 
 footer{
     margin-top: auto;
-    background: whitesmoke;
+    background: rgb(209, 153, 153);
 }
 
 .footer{
     text-align: center;
+    
 }
 
 aside{
@@ -194,5 +204,11 @@ footer{
     .header-container{
         margin: 0px 15px;
     }
+    #addBook{
+        background: #A6C5A6;
+        border: none;
+        margin-top: 0%;
+    }
+    
 }
 
