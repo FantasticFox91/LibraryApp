@@ -37,6 +37,8 @@ header{
     color: black;
     border:none;
     font-size: 18px;
+    font-family: "Josefin Sans";
+    font-weight: 600;
 }
 
 .header-container > button:hover{
@@ -203,11 +205,21 @@ footer{
     }
     .header-container{
         margin: 0px 15px;
+        justify-content: space-around;
+
     }
     #addBook{
         background: #A6C5A6;
         border: none;
         margin-top: 0%;
+    }
+
+    .log{
+        margin-left: 0;
+    }
+
+    body{
+        font-weight: 800;
     }
     
 }
