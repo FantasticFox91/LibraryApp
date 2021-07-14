@@ -9,53 +9,69 @@
     <!-- Header -->
     <header>
         <div class="header-container">
-            <button>Menu</button>
+            <button id="menu">Menu</button>
             <div class="inner-text">
                 <p>My virtual library</p>
             </div>
             <button class="log">Log in</button>
         </div>
     </header>
-    <!-- Aside menu -->
     <!-- Main -->
     <main>
         <div class="wrapper">
-        <aside>
-            <div class="user-info">
-                <p>Books in Library: <span>2</span></p>
-                <p>Worlds to discover: <span>1</span></p>
-                <p>Worlds discovered: <span>1</span></p>
-                <p>Pages read: <span>200</span></p>
+            <!-- Aside -->
+            <aside>
+                <div class="user-info">
+                    <p>Books in Library: <span>2</span></p>
+                    <p>Worlds to discover: <span>1</span></p>
+                    <p>Worlds discovered: <span>1</span></p>
+                    <p>Pages read: <span>200</span></p>
+                    <button id="addBook">Add book</button>
+                </div>
+            </aside>
+            <div class="container">
+                <div class="book-container-start">
+                    <p>Here will be your books</p>
+                </div>
             </div>
-        </aside>
-        <div class="container">
-        <!-- <div class="book-container">
-            <h5>To Kill a Mockingbird</h5>
-            <h6>by Harper Lee</h6>
-            <p>Pages: <span>200</span></p>
-            <p>Read:</p>
-               <label for="Readyes">
-                   <input type="radio" name="Read">Yes
-               </label>
-               <label for="Readno"></label>
-                   <input type="radio" name="Read">No
-               </label>
-            </p>
-        </div> -->
-        <div class="book-container-start">
-            <button id="addBook"><img src="plus.png" alt="Adding" width="100" height="100"></button>
-        </div>
-    </div>
-</div>
     </main>
-    <!-- Footer -->
-    <footer>
-        <div class="footer">
-            <p>Programmer information. All right was sold</p>
-        </div>
-    </footer>
-    
- <!-- Script -->
+    <!-- Form -->
+    <section class="formBook hide">
+        <article>
+           <form action="" class="" id="addBookForm">
+            <a href='#' class="closeBtn"></a>
+            <h1 class="h1Form">Add new Book</h1>
+            <label for="bname">Book Name:</label><br>
+            <input type="text" name="bname" id="bname"><br>
+            <label for="author">Book Author:</label><br>
+            <input type="text" name="author" id="author"><br>
+            <label for="pages">Number of pages:</label><br>
+            <input type="number" name="pages" id="pages"><br>
+            <label for="ganre">Choose book genres</label><br>
+            <select name="genres" id="genres">
+                <option value="horror">Horror</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="historical">Historical</option>
+                <option value="psychology">Psychology</option>
+                <option value="unlnown">Don't know</option>
+            </select><br>
+            <label for="read">Have you read it?</label><br>
+            <div class="checkboxRead">
+            <input type="radio" name="read" id="read"> Yes
+            <input type="radio" name="read" id="read">No<br>
+            </div>
+            <button type="button" id="addBookBtn" onclick=getBookinfo() >Submit</button>
+        </form>
+        </article>
+    </section>
+</div>   
+<!-- Footer -->
+<footer>
+    <div class="footer">
+        <p>Programmer information. All right was sold</p>
+    </div>
+</footer>
+<!-- Script -->
  <script src="script.js"></script>
 </body>
 </html>
