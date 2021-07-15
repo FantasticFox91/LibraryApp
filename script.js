@@ -2,7 +2,7 @@
 let myLibrary = [];
 
 const bookStorage = document.getElementsByClassName("container")[0];
-const menuBtn = document.getElementById("menu");
+const menuBtn = document.querySelector("#menu");
 const bookNameInput = document.querySelector("#bname");
 const authorInput = document.querySelector("#author");
 const addBookBtn = document.querySelector("#addBook");
@@ -14,6 +14,7 @@ const formBtn = document.querySelector('#addBookBtn');
 const pages = document.querySelector('#pages');
 let author = "";
 let bookName = "";
+
 
 function Book(name,author,pages) {
   // the constructor...
@@ -61,17 +62,39 @@ function clearInputs(){
   pages.value = "";
 }
 
-function updateBookContainers () {
-  bookStorage.firstElementChild.remove();
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
+}
+
+function createBookContainer(){
   let newDiv = document.createElement("div");
   let bookNameOutput = document.createElement("p");
-  bookNameOutput.textContent = myLibrary[0].bookName;
+  bookNameOutput.textContent = myLibrary[myLibrary.length - 1].bookName;
   let bookAuthor = document.createElement("p");
-  bookAuthor.textContent = myLibrary[0].author;
+  bookAuthor.textContent = myLibrary[myLibrary.length - 1].author;
   newDiv.appendChild(bookNameOutput);
   newDiv.appendChild(bookAuthor);
   newDiv.classList.add("book-container");
   bookStorage.appendChild(newDiv)
+}
+
+
+
+function updateBookContainers () {
+     removeAllChildNodes(bookStorage);
+    myLibrary.map((el)=>{
+      let newDiv = document.createElement("div");
+      let bookNameOutput = document.createElement("p");
+      bookNameOutput.textContent = el.bookName;
+      let bookAuthor = document.createElement("p");
+      bookAuthor.textContent = el.author;
+      newDiv.appendChild(bookNameOutput);
+      newDiv.appendChild(bookAuthor);
+      newDiv.classList.add("book-container");
+      bookStorage.appendChild(newDiv)
+    })
 };
 
 getBookinfo = () =>{
@@ -93,7 +116,7 @@ getBookinfo = () =>{
   updateBookContainers();
 };
 
-
+menuBtn.onclick = function(){addBookForm.classList.toggle("hide");}
 
 // formBtn.onclick = function () {
 //   getBookinfo();
