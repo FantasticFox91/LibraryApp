@@ -33,7 +33,18 @@
                 <div class="book-container-start">
                     <p>Here will be your books</p>
                 </div>
+                    <div class="book-container">
+                        <h2>Book name</h2>
+                        <p class='authorName'>Author</p>
+                        <p>Pages</p>
+                        <p>Genr</p>
+                        <P>Read or Not:</P>
+                        <button id="deleteBtn">Delete it</button>
+                    </div>
+                </div>
             </div>
+            
+            
     </main>
     <!-- Form -->
     <section class="formBook hide">
@@ -56,9 +67,11 @@
                 <option value="unlnown">Don't know</option>
             </select><br>
             <label for="read">Have you read it?</label><br>
-            <div class="checkboxRead">
-            <input type="radio" name="read" id="read"> Yes
-            <input type="radio" name="read" id="read">No<br>
+            <select name="read" id="read">
+                <option value="read">Read</option>
+                <option value="not read">Not read</option>
+            </select>
+            <br>
             </div>
             <button type="button" id="addBookBtn" onclick=getBookinfo() >Submit</button>
         </form>

@@ -12,41 +12,28 @@ const addBookForm = document.querySelector(".formBook");
 const closeBtn = document.querySelector('.closeBtn');
 const formBtn = document.querySelector('#addBookBtn');
 const pages = document.querySelector('#pages');
+let deleteBtns = document.querySelectorAll('.deleteBtn');
+
 let author = "";
 let bookName = "";
+let id = 0;
+let checker = 0;
+// function Book(name,author,pages) {
+//   // the constructor...
+//   this.name = name,
+//   this.author = author,
+//   this.pages = pages
+// }
 
-
-function Book(name,author,pages) {
-  // the constructor...
-  this.name = name,
-  this.author = author,
-  this.pages = pages
-}
-
-function addBookToLibrary() {
-  // do stuff here
-}
+// function addBookToLibrary() {
+//   // do stuff here
+// }
 
 window.onclick = function (event) {
   if (event.target.className === "formBook") {
     event.target.classList.toggle('hide')
     }
 }
-
-
-
-// addBookTo.onclick = function(){
-//   startContainer.classList.add("hide")
-//   let newDiv = document.createElement("div");
-//   let bookNameOutput = document.createElement("p");
-//   bookNameOutput.textContent = bookName;
-//   let bookAuthor = document.createElement("p");
-//   bookAuthor.textContent = author;
-//   newDiv.appendChild(bookNameOutput);
-//   newDiv.appendChild(bookAuthor);
-//   newDiv.classList.add("book-container");
-//   bookStorage.appendChild(newDiv)
-// }
 
 addBookBtn.onclick = function(){
   addBookForm.classList.toggle("hide")
@@ -68,34 +55,48 @@ function removeAllChildNodes(parent) {
   }
 }
 
-function createBookContainer(){
-  let newDiv = document.createElement("div");
-  let bookNameOutput = document.createElement("p");
-  bookNameOutput.textContent = myLibrary[myLibrary.length - 1].bookName;
-  let bookAuthor = document.createElement("p");
-  bookAuthor.textContent = myLibrary[myLibrary.length - 1].author;
-  newDiv.appendChild(bookNameOutput);
-  newDiv.appendChild(bookAuthor);
-  newDiv.classList.add("book-container");
-  bookStorage.appendChild(newDiv)
+function deleteItemFromArray(event){
+  event.path[1].remove()
+  let indexItem = event.path[1].dataset.id
+  myLibrary.splice(indexItem,1)
+  console.log(indexItem,myLibrary)
+  
+  // let deleteItemIndex = event.path[1].dataset.id;
+  // console.log(deleteItemIndex)
+  // myLibrary = myLibrary.filter((item)=> item.id !== deleteItemIndex);
+  // event.path[1].remove()
 }
-
-
 
 function updateBookContainers () {
      removeAllChildNodes(bookStorage);
-    myLibrary.map((el)=>{
-      let newDiv = document.createElement("div");
-      let bookNameOutput = document.createElement("p");
-      bookNameOutput.textContent = el.bookName;
-      let bookAuthor = document.createElement("p");
-      bookAuthor.textContent = el.author;
-      newDiv.appendChild(bookNameOutput);
-      newDiv.appendChild(bookAuthor);
-      newDiv.classList.add("book-container");
-      bookStorage.appendChild(newDiv)
-    })
-};
+      myLibrary.map((el)=>{
+        let newDiv = document.createElement("div");
+        let bookNameOutput = document.createElement("h2");
+        bookNameOutput.textContent = el.bookName;
+        let bookAuthor = document.createElement("p");
+        let deleteBtn = document.createElement("button");
+        deleteBtn.classList.add("deleteBtn")
+        deleteBtn.textContent = "Delete it"
+        bookAuthor.textContent =`This is book written by ${el.author} with ${el.pages} pages. It is written in ${el.genre} genre and you ${el.read === "read" ? 'read ' : "haven't read "} it`;
+        newDiv.appendChild(bookNameOutput);
+        newDiv.appendChild(bookAuthor);
+        deleteBtn.setAttribute('data-id', `${id}`)
+        newDiv.appendChild(deleteBtn);
+        newDiv.classList.add("book-container");
+        newDiv.setAttribute('data-id', `${id}`)
+        bookStorage.appendChild(newDiv)
+        id++
+      })
+      id=0;
+    deleteBtns = document.querySelectorAll('.deleteBtn');
+    deleteBtns.forEach((el)=>el.onclick = deleteItemFromArray)
+  }
+   
+
+
+// определить индекс в массиве кликнутого элемента
+// вызвать функцию меняющую глобальную переменную(удаляет оттуда массив с кликнутым индексом)
+  
 
 getBookinfo = () =>{
   let bName = document.querySelector('#bname').value;
@@ -104,6 +105,7 @@ getBookinfo = () =>{
   let genre = document.querySelector('#genres').value;
   let readYesNo = document.querySelector('#read').value
   let a = {
+    id:id,
     bookName : bName,
     author: aName,
     pages: pages,
@@ -116,8 +118,4 @@ getBookinfo = () =>{
   updateBookContainers();
 };
 
-menuBtn.onclick = function(){addBookForm.classList.toggle("hide");}
-
-// formBtn.onclick = function () {
-//   getBookinfo();
-// } 
+menuBtn.onclick = function(){addBookForm.classList.toggle("hide")};

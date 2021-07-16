@@ -52,7 +52,8 @@ main{
 }
 
 .wrapper{
-    display:flex;
+    display:grid;
+    grid-template-columns: 200px 900px;
     max-width:1200px;
     margin: 30px 15px 55px 15px;
     
@@ -95,7 +96,7 @@ aside{
     border-radius: 15px;
     background: #A6C5A6;
     transition: all .2s ease-in-out;
-    height:120px;
+    
     width: 150px;
 }
 
@@ -222,77 +223,11 @@ section > article{
     transform: rotate(-45deg);
   }
   
+  .authorName{
+      font-style: italic;
+      text-align: right;
+  }
     
-/*
-.log{
-    margin-left: auto;
-}
-header{
-    background: tomato;
-    padding-left: 10px;
-    font-size: 1.5rem;
-}
-
-.wrapper{
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    
-}
-
-main{
-    width:1170px;
-    margin: auto;
-    background: turquoise;
-    
-}
-
-aside{
-    max-width:30%;
-    background: wheat;
-    padding-left: 10px;
-    font-size: 1rem;
-    
-}
-
-.book-container{
-    width:80%;
-    padding-left: 10px;
-    max-height: 150px;
-}
-
-footer{
-    margin-top: auto;
-    background: violet;
-    padding-left: 10px;
-}
-
-.user-info{
-    border: 1px solid black;
-    margin: 10px 10px 0 0;
-    background: rgb(202, 164, 164);
-    border-radius: 15px;
-    min-width: 140px;
-}
-
-.container{
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    grid-template-rows: auto;
-    grid-gap: 5px;
-    row-gap: 10px;
-
-}
-
-.book-container{
-    border: 2px solid black;
-    height: auto;
-    border-radius: 15px;
-    margin: 10px;
-    font-size: 1rem;
-
-} */
-
 @media (max-width:810px){
     aside{
         display:none;
@@ -331,6 +266,10 @@ footer{
         left:26%;
         border: 1px solid black;
         background-color: azure;
+    }
+
+    .wrapper{
+        grid-template-columns: 1fr;
     }
     
 }
