@@ -9,7 +9,7 @@
     <!-- Header -->
     <header>
         <div class="header-container">
-            <button id="menu">Menu</button>
+            <button id="menu" >Menu</button>
             <div class="inner-text">
                 <p>My virtual library</p>
             </div>
@@ -22,25 +22,15 @@
             <!-- Aside -->
             <aside>
                 <div class="user-info">
-                    <p>Books in Library: <span>2</span></p>
-                    <p>Worlds to discover: <span>1</span></p>
-                    <p>Worlds discovered: <span>1</span></p>
-                    <p>Pages read: <span>200</span></p>
+                    <p>Books in Library: <span id="booksCounter">0</span></p>
+                    <p>Worlds to discover: <span id="notReadCounter">0</span></p>
+                    <p>Worlds discovered: <span id="readCounter">0</span></p>
+                    <p>Pages read: <span id="pagesRead">0</span></p>
                     <button id="addBook">Add book</button>
                 </div>
             </aside>
             <div class="container">
-                <div class="book-container-start">
-                    <p>Here will be your books</p>
-                </div>
-                    <div class="book-container">
-                        <h2>Book name</h2>
-                        <p class='authorName'>Author</p>
-                        <p>Pages</p>
-                        <p>Genr</p>
-                        <P>Read or Not:</P>
-                        <button id="deleteBtn">Delete it</button>
-                    </div>
+                
                 </div>
             </div>
             
@@ -52,28 +42,33 @@
            <form action="" class="" id="addBookForm">
             <a href='#' class="closeBtn"></a>
             <h1 class="h1Form">Add new Book</h1>
-            <label for="bname">Book Name:</label><br>
-            <input type="text" name="bname" id="bname"><br>
-            <label for="author">Book Author:</label><br>
-            <input type="text" name="author" id="author"><br>
-            <label for="pages">Number of pages:</label><br>
-            <input type="number" name="pages" id="pages"><br>
+            <label for="bname">Book Name:*</label><br>
+            <input type="text" name="bname" id="bname" pattern = “[A-Za-z]” required placeholder="Book name in English"><br>
+            <label for="author">Book Author:*</label><br>
+            <input type="text" name="author" id="author" pattern = “[A-Za-z]” required placeholder="Author name in English"><br>
+            <label for="pages">Number of pages:*</label><br>
+            <input type="number" name="pages" id="pages" required><br>
             <label for="ganre">Choose book genres</label><br>
-            <select name="genres" id="genres">
+            <select name="genres" id="genres" >
                 <option value="horror">Horror</option>
                 <option value="fantasy">Fantasy</option>
                 <option value="historical">Historical</option>
                 <option value="psychology">Psychology</option>
-                <option value="unlnown">Don't know</option>
+                <option value="psychology">Education</option>
+                <option value="psychology">Short Stories</option>
+                <option value="psychology">Detective and Mystery</option>
+                <option value="psychology">Classics</option>
+                <option value="unlnown" selected>Don't know</option>
             </select><br>
             <label for="read">Have you read it?</label><br>
             <select name="read" id="read">
                 <option value="read">Read</option>
-                <option value="not read">Not read</option>
+                <option value="not read" selected>Not read</option>
             </select>
             <br>
+            <p><sup>*</sup>Required fields</p>
             </div>
-            <button type="button" id="addBookBtn" onclick=getBookinfo() >Submit</button>
+            <button type="button" id="addBookBtn" onclick=getBookinfo() >Add</button>
         </form>
         </article>
     </section>

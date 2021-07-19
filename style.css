@@ -274,3 +274,9 @@ section > article{
     
 }
 
+@media (min-width:811px) {
+    #menu{
+        display:none;
+    }
+}
+
