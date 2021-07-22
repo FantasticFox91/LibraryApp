@@ -25,29 +25,36 @@
                     <p>Books in Library: <span id="booksCounter">0</span></p>
                     <p>Worlds to discover: <span id="notReadCounter">0</span></p>
                     <p>Worlds discovered: <span id="readCounter">0</span></p>
-                    <p>Pages read: <span id="pagesRead">0</span></p>
+                    <p>Total pages: <span id="pagesRead">0</span></p>
                     <button id="addBook">Add book</button>
                 </div>
             </aside>
             <div class="container">
-                
-                </div>
+                <!-- <div class="book-container">
+                    <h2>Book title</h2>
+                    <p>This book is written by dsa with 123 pages. It is written in historical genre and you read it</p>
+                    <div class="book-container-btns">
+                    <button class="changeReadStatus" id="changeBookReadStatus">Δ</button>
+                    <button class="deleteBookBtn" id="" >╳</button>
+                    </div> -->
+                </div>    
+            </div>
             </div>
             
             
     </main>
     <!-- Form -->
-    <section class="formBook hide">
+    <section class="formBook hide" >
         <article>
            <form action="" class="" id="addBookForm">
             <a href='#' class="closeBtn"></a>
             <h1 class="h1Form">Add new Book</h1>
             <label for="bname">Book Name:*</label><br>
-            <input type="text" name="bname" id="bname" pattern = “[A-Za-z]” required placeholder="Book name in English"><br>
+            <input type="text" name="bname" id="bname" required placeholder="Book name in English" pattern="[A-Za-z]{1,30}"><br>
             <label for="author">Book Author:*</label><br>
-            <input type="text" name="author" id="author" pattern = “[A-Za-z]” required placeholder="Author name in English"><br>
+            <input type="text" name="author" id="author" required placeholder="Author name in English" pattern="[A-Za-z]{1,30}"><br>
             <label for="pages">Number of pages:*</label><br>
-            <input type="number" name="pages" id="pages" required><br>
+            <input type="number" name="pages" id="pages" max = 5000><br>
             <label for="ganre">Choose book genres</label><br>
             <select name="genres" id="genres" >
                 <option value="horror">Horror</option>
@@ -58,18 +65,21 @@
                 <option value="psychology">Short Stories</option>
                 <option value="psychology">Detective and Mystery</option>
                 <option value="psychology">Classics</option>
-                <option value="unlnown" selected>Don't know</option>
+                <option value="unknown" selected>Don't know</option>
             </select><br>
-            <label for="read">Have you read it?</label><br>
-            <select name="read" id="read">
-                <option value="read">Read</option>
-                <option value="not read" selected>Not read</option>
-            </select>
+            Have you read it?<br>
+            <label for="readRadioButton">
+                <select name="readStatusSelect" id="readStatusValue" size="2">
+                    <option value="read">Read</option>
+                    <option value="not read" selected>Not read</option>
+                </select>
+            </laber>
             <br>
             <p><sup>*</sup>Required fields</p>
+            <div class="formAddBtn">
+            <button type="submit" id="addBookBtn" >Add</button>
             </div>
-            <button type="button" id="addBookBtn" onclick=getBookinfo() >Add</button>
-        </form>
+            </form>
         </article>
     </section>
 </div>   
@@ -80,6 +90,6 @@
     </div>
 </footer>
 <!-- Script -->
- <script src="script.js"></script>
+ <script src="script.js" data-cookiescript="accepted"></script>
 </body>
 </html>

@@ -88,16 +88,47 @@ aside{
     margin-left: auto;
     grid-gap: 20px;
     margin-top: 15px;
+    grid-template-rows: 1fr;
 }
 
 .book-container,.book-container-start{
-    text-align: center;
+    display:flex;
+    flex-direction: column;
     padding: 20px;
     border-radius: 15px;
     background: #A6C5A6;
     transition: all .2s ease-in-out;
-    
-    width: 150px;
+    text-align: center;
+}
+
+.book-container p{
+    height:100px;
+}
+
+.book-container.notRead{
+    background-color: #949d94;
+}
+
+.book-container-btns{
+    display:flex;
+    justify-content: space-between;
+}
+
+.book-container-btns button{
+    width: 30px;
+    height:30px;
+    border-radius: 50%;
+
+}
+
+.deleteBtn{
+    background:rgb(155, 42, 42);
+    color:white;
+}
+
+.readBtn{
+    background-color: rgb(51, 73, 194);
+    color:white;
 }
 
 .book-container-start{
@@ -105,7 +136,7 @@ aside{
 }
 
 .book-container:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .book-container-start:hover{
@@ -226,6 +257,15 @@ section > article{
   .authorName{
       font-style: italic;
       text-align: right;
+  }
+
+  select{
+      overflow: hidden;
+  }
+
+  .formAddBtn{
+    display:flex;
+    justify-content: center;
   }
     
 @media (max-width:810px){
