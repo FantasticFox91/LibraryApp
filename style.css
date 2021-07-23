@@ -103,6 +103,7 @@ aside{
 
 .book-container p{
     height:100px;
+    min-width: 120px;
 }
 
 .book-container.notRead{
