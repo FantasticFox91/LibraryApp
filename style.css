@@ -300,6 +300,7 @@ section > article{
     button{
         font-family: sans-serif;
     }
+    
     #addBookForm{
         z-index: 2;
         position: fixed;
