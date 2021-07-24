@@ -140,9 +140,12 @@ let changeReadStatus = (event) =>{
 //Update main container using local storage 
 
 function updateBookContainersLocal () {
+     
     removeAllChildNodes(bookStorage);
     id = 0;
     myLibrary = JSON.parse(localStorage.getItem("books"))
+    
+    
 
     if(myLibrary.length > 0){
      myLibrary.map((el)=>createBookContainer(el))
