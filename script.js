@@ -176,6 +176,15 @@ function getBookinfo (e) {
   hideAddBookForm()
   updateBookContainersLocal();
 }
+
+function onLoadStart (){
+  if (localStorage.getItem("books") === null){
+      console.log("null")
+      }else{
+        updateBookContainersLocal();
+        myLibrary = JSON.parse(localStorage.getItem("books"));
+      }
+}
   
 
 
@@ -198,8 +207,6 @@ menuBtn.onclick = () => hideAddBookForm();
 
 //On load
 
-//Initiante retrieve infromation from local storage on refresh or reopen the page
-updateBookContainersLocal();
+onLoadStart()
 
-//Update array from local storage information
-myLibrary = JSON.parse(localStorage.getItem("books"));
+
